@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>Dashboard OSINT</h1>
+
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button type="submit" class="btn btn-primary">Buscar</button>
+</form>
+
+{% if results %}
+    <h2>Resultados para {{ form.cleaned_data.query }} con {{ form.cleaned_data.tool }}</h2>
+    <pre style="background:#f8f9fa; padding:1rem; border:1px solid #ddd; border-radius:6px; overflow:auto; font-family: 'Consolas', monospace;">
+    {{ pretty_results }}</pre>  <!-- Mejora con tablas o JSON pretty -->
+{% endif %}
+
+<h3>Últimas Búsquedas</h3>
+<table class="table">
+    <thead>
+        <tr><th>Herramienta</th><th>Query</th><th>Fecha</th></tr>
+    </thead>
+    <tbody>
+        {% for search in searches %}
+        <tr>
+            <td>{{ search.tool }}</td>
+            <td>{{ search.query }}</td>
+            <td>{{ search.searched_at|date:"d/m/Y H:i" }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

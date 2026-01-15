@@ -1,0 +1,14 @@
+body {
+    background-color: #000;
+    color: #0f0; /* Verde de terminal */
+    font-family: 'Consolas', 'Courier New', monospace;
+    text-shadow: 0 0 5px #0f0;
+}
+h1, h2 {
+    color: #0ff; /* Cian */
+    text-shadow: 0 0 8px #0ff;
+}
+a {
+    color: #ff0; /* Amarillo */
+    text-decoration: none;
+}
