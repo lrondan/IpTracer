@@ -112,7 +112,6 @@ http://127.0.0.1:8000
 
 Enter a valid IP address in the interface and verify that the data is displayed correctly.
 
----
 
 ## 🛑 Troubleshooting
 
